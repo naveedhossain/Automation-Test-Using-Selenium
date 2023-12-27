@@ -1,0 +1,168 @@
+from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver import Keys
+
+# Create a ChromeService object
+chrome_service = ChromeService(ChromeDriverManager().install())
+
+
+# Use ChromeService to start ChromeDriver
+driver = webdriver.Chrome(service=chrome_service)
+
+
+
+
+time.sleep(2)
+driver.maximize_window()
+# going to webiste address
+driver.get("file:///C:/Users/DELL/Music/Personal/project/Second%20Project/oxer-html/check.html")
+time.sleep(2)
+#scroll down to buttom
+driver.execute_script("window.scrollBy(0,8000)","")
+time.sleep(2)
+#scroll up to top
+driver.execute_script("window.scrollBy(0,-8000)","")
+time.sleep(2)
+#click on checkbox menu
+checkbox = driver.find_element("xpath",'//*[@id="navbarSupportedContent"]/div/ul/li[1]/a').click()
+time.sleep(2)
+driver.execute_script("window.scrollBy(0,1500)","")
+time.sleep(2)
+'''CHECKBOX'''
+#answer the first checkbox answer (Red and Blue)
+red = driver.find_element("xpath",'/html/body/section[2]/form/div[1]/label[1]/input').click()
+blue = driver.find_element("xpath",'/html/body/section[2]/form/div[1]/label[2]/input').click()
+#answer the second checkbox answer (All)
+reading = driver.find_element("xpath",'/html/body/section[2]/form/div[2]/label[1]/input').click()
+time.sleep(1)
+traveling= driver.find_element("xpath",'/html/body/section[2]/form/div[2]/label[2]/input').click()
+time.sleep(1)
+gaming = driver.find_element("xpath",'/html/body/section[2]/form/div[2]/label[3]/input').click()
+#third checkbox (only the middle one)
+time.sleep(2)
+laptop = driver.find_element("xpath",'/html/body/section[2]/form/div[3]/label[2]/input').click()
+time.sleep(2)
+#click on submit button
+submit = driver.find_element("xpath",'/html/body/section[2]/form/div[4]/a').click()
+time.sleep(2)
+#verify the successful keyword
+text1 = driver.find_element("xpath",'/html/body/h1').text
+time.sleep(2)
+if text1 == "SUCCESSFUL":
+    print("Checkbox submitted successfully")
+else:
+    print('Failed')
+time.sleep(5)
+#going back
+driver.back()
+time.sleep(2)
+
+'''Radio Button'''
+driver.refresh()
+time.sleep(2)
+#scroll to top
+driver.execute_script("window.scrollBy(0,-2500)","")
+time.sleep(2)
+#Move to Radio button page
+radio_button_page = driver.find_element("xpath",'//*[@id="navbarSupportedContent"]/div/ul/li[4]/a').click()
+time.sleep(2)
+##Move to Radio button page
+radio_button_page = driver.find_element("xpath",'//*[@id="navbarSupportedContent"]/div/ul/li[4]/a').click()
+time.sleep(2)
+#radio button 1 (Gentle Option 2)
+radio_button_1 = driver.find_element("xpath",'/html/body/section[1]/form/div[1]/label[2]/input').click()
+time.sleep(2)
+
+#radio button 2 (Gentle Option 3)
+radio_button_2 = driver.find_element("xpath",'/html/body/section[1]/form/div[2]/label[3]/input').click()
+time.sleep(2)
+
+#click on submit button
+submit = driver.find_element("xpath",'/html/body/section[1]/form/div[2]/div/a').click()
+time.sleep(2)
+#verify the successful keyword
+text2 = driver.find_element("xpath",'/html/body/h1').text
+time.sleep(2)
+if text2 == "SUCCESSFUL":
+    print("Radio Button submitted successfully")
+else:
+    print('Failed')
+time.sleep(5)
+#going back
+driver.back()
+time.sleep(2)
+'''Input field'''
+driver.refresh()
+time.sleep(2)
+
+
+
+#Move to Input fields page
+input_page = driver.find_element("xpath",'//*[@id="navbarSupportedContent"]/div/ul/li[3]/a').click()
+time.sleep(2)
+
+#scroll to input box
+driver.execute_script("window.scrollBy(0,1000)","")
+time.sleep(2)
+
+#Name Field
+name = driver.find_element("xpath",'/html/body/div[2]/div/div/div/div/div[1]/section[1]/form/div[1]/input').send_keys('Naveed Hossain')
+time.sleep(2)
+#Phone Number Field
+phone = driver.find_element("xpath",'/html/body/div[2]/div/div/div/div/div[1]/section[1]/form/div[2]/input').send_keys('01234567891')
+time.sleep(2)
+#Email Field
+email = driver.find_element("xpath",'/html/body/div[2]/div/div/div/div/div[1]/section[1]/form/div[3]/input').send_keys('naveedhossain99@gmail.com')
+time.sleep(2)
+#Email Field
+email = driver.find_element("xpath",'/html/body/div[2]/div/div/div/div/div[1]/section[1]/form/div[4]/input').send_keys('This portion of testing is for testing the automation of input fields.')
+time.sleep(2)
+#click on submit button
+send = driver.find_element("xpath",'/html/body/div[2]/div/div/div/div/div[1]/section[1]/form/div[5]/button').click()
+time.sleep(2)
+#verify the successful keyword
+text3 = driver.find_element("xpath",'/html/body/h1').text
+time.sleep(2)
+if text3 == "SUCCESSFUL":
+    print("Input Fields submitted successfully")
+else:
+    print('Failed')
+time.sleep(5)
+#going back
+driver.back()
+time.sleep(2)
+
+'''Move to DROP DOWN page'''
+driver.execute_script("window.scrollBy(0,-2000)","")
+time.sleep(2)
+#Go to drop down option
+drop_down = driver.find_element("xpath",'//*[@id="navbarSupportedContent"]/div/ul/li[2]/a').click()
+time.sleep(2)
+#Scroll down
+driver.execute_script("window.scrollBy(0,1000)","")
+time.sleep(2)
+#select option from first drop down
+drop_1 = Select(driver.find_element("xpath",'//*[@id="regularDropdown"]'))
+time.sleep(2)
+drop_1.select_by_index(1)
+time.sleep(1)
+#click on submit button
+submit = driver.find_element("xpath",'/html/body/section[3]/form/div/a').click()
+time.sleep(2)
+#verify the successful keyword
+text4 = driver.find_element("xpath",'/html/body/h1').text
+time.sleep(2)
+if text4 == "SUCCESSFUL":
+    print("Dropdown submitted successfully")
+else:
+    print('Failed')
+time.sleep(5)
+#going back
+driver.back()
+time.sleep(2)
+print("Full Automation Completed")
